@@ -32,6 +32,24 @@ main {
     border-radius: 30px;
 }
 
+header {
+    width: 100vw;
+    height: 85px;
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    height: 40px;
+    width: 80px;
+    border-radius: 30px;
+    margin: 0 20px 0 20px;
+}
+
 .container {
     width: 650px;
     height: 670px;
@@ -49,16 +67,16 @@ main {
 }
 
 .front-face {
-    /* width: 100%;
-    height: 100%; */
+    width: 100%;
+    height: 100%;
     position: absolute;
     border-radius: 25px;
     background-color: var(--front-bg-placeholder);
 }
 
 .back-face {
-    /* width: 100%;
-    height: 100%; */
+    width: 100%;
+    height: 100%;
     position: absolute;
     border-radius: 25px;
     background-color: var(--back-bg-placeholder);
