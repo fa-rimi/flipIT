@@ -59,6 +59,13 @@ function createNewGameBoard(rows, columns) {
     colors.push(randomColor, randomColor);
     console.log(colors[i]);
   }
+
+  // shuffle color array using Fisher-Yates shuffle algorithm
+  for (let i = colors.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [colors[i], colors[j]] = [colors[j], colors[i]];
+  }
+
   // create a loop that says that if i <= totalCards it will increment until it reaches the total amount
   // then it will create card divs with memory-card class
   // within those card divs there are front-face class divs for the hidden parts of the card
