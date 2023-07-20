@@ -163,7 +163,21 @@ function randomRgbColor() {
     - after each event listener for the three different modes, i added the amount of cards each one needs. for ex. easy => createNewGameBoard(2, 2); medium => createNewGameBoard(4, 4); hard => createNewGameBoard(6, 6);
 -------------------------------------------------------------------------------------------
 
-- Problem: 
-    - why?
+- Problem: The colors are displaying too similarly, this makes the game hard but inaccessible to people
+who might have color vision deficiency 
+    - why? the rgb values are too broad? but i need them so its a variety of colors and no board looks the same
 
-    - how did i fix it?
+    - how did i fix it? n/a
+-------------------------------------------------------------------------------------------
+
+- Problem: Time and counter were not resetting
+  - why? I forgot to reset them or clear them when a new game start which in this case is measured by when a new game board is created    
+
+  - how did i fix it? added to createNewGameBoard :
+  - clickCount = 0; // reset the click counter to 0 for every new game
+  - clearInterval(timerInterval); // cleared out the timer interval that was set with set interval time 
+    secondsElapsed = 0; // set second to 0
+    timerStarted = false; 
+-------------------------------------------------------------------------------------------
+
+- Problem: 

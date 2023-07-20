@@ -36,10 +36,9 @@ function updateClickCount() {
 // new gameboard will have a certain amount of cards (rows, columns), depending on the mode that was clicked
 const gameboard = document.querySelector(".gameboard");
 function createNewGameBoard(rows, columns) {
-
   // reset
-    // reset click count
-    clickCount = 0;
+  // reset click count
+  clickCount = 0;
   // clear the interval that was set with setInterval in the update
   clearInterval(timerInterval);
   // reset seconds to 0
@@ -48,7 +47,6 @@ function createNewGameBoard(rows, columns) {
   // HTML
   const timerElement = document.getElementById("timer");
   timerElement.textContent = "Time: 0 seconds";
-
 
   const totalCards = rows * columns;
 
