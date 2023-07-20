@@ -108,5 +108,10 @@ console.dir(gameboard);
     - why? because i forgot to add the values/parameters in createNewGameBoard(); in the btn event listener. since its blank its making 0 rows and 0 columns :(
 
     - how did i fix it?
-    - after each event listener for the three different modes, i added the amount of cards each one needs. for ex. easy => createNewGameBoard(4, 4); medium => createNewGameBoard(6, 6); hard => createNewGameBoard(8, 8);
+    - after each event listener for the three different modes, i added the amount of cards each one needs. for ex. easy => createNewGameBoard(2, 2); medium => createNewGameBoard(4, 4); hard => createNewGameBoard(6, 6);
+-------------------------------------------------------------------------------------------
 
+- Problem: 
+    - why?
+
+    - how did i fix it?
