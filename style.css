@@ -76,6 +76,7 @@ button {
 }
 
 .front-face {
+    /* rgb color for randomized card color -> js*/
     border-radius: 25px;
     background-color: blue;
     transform: rotateY(180deg);
