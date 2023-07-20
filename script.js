@@ -115,11 +115,6 @@ function randomRgbColor() {
 /**
  *
  * Note to future self:
- * - max amount of colors should be 40-50
- * - make an array of colors -- preferably creating colors from math.random and hex code values as oppose to writing out all the
- *   colors to be efficient.
- * - figure out how to make 2 colors repeat to make a pair of cards
- * - work on randomizing/shuffling colors and applying it to the front-face class
  *
  * afterwards:
  * * take a break babes, you need it **
