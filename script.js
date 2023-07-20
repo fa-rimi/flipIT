@@ -21,6 +21,14 @@ hardBtn.addEventListener("click", () => {
   createNewGameBoard(6, 6);
 });
 
+// clickCount is 0 because there hasn't been any clicks yet
+let clickCount = 0;
+
+function updateClickCount() {
+  const clickCountElement = document.getElementById("click-count");
+  clickCountElement.textContent = `Click Count: ${clickCount}`;
+}
+
 // * new game board
 // new gameboard will have a certain amount of cards (rows, columns), depending on the mode that was clicked
 const gameboard = document.querySelector(".gameboard");
@@ -53,36 +61,36 @@ function createNewGameBoard(rows, columns) {
     [colors[i], colors[j]] = [colors[j], colors[i]];
   }
 
-  // clickCount is 0 because there hasn't been any clicks yet
-  let clickCount = 0;
+  // Update the click count element initially
+  updateClickCount();
 
   // create a loop that says that if i <= totalCards it will increment until it reaches the total amount
   for (let i = 0; i < totalCards; i++) {
-      // then it will create card divs with memory-card class
-      const card = document.createElement("div");
-      // create and add class memory-cards for overall cards
-      card.classList.add("memory-cards");
-      // create and add class flip-card for card flip function
-      card.classList.add("flip-card");
-      
-      // within those card divs there are front-face class divs for the hidden parts of the card
-      // card side that player will see
-      const backFace = document.createElement("div");
-      backFace.classList.add("back-face");
-      backFace.textContent = "?";
-      // backFace.style.textAlign = 'center';
-      
-      // there are also back-face class divs for the exposed parts of the card
-      // card with color thats hidden
-      const frontFace = document.createElement("div");
-      frontFace.classList.add("front-face");
-      frontFace.style.backgroundColor = colors[i]; // apply random colors here
-      
-      // in order for it to work i have to attach the front-face & back-face to the card to make sure its one
-      card.appendChild(backFace);
-      card.appendChild(frontFace);
+    // then it will create card divs with memory-card class
+    const card = document.createElement("div");
+    // create and add class memory-cards for overall cards
+    card.classList.add("memory-cards");
+    // create and add class flip-card for card flip function
+    card.classList.add("flip-card");
 
-      // but i'll have to attach these to the actual gameboard or else its just gonna be idk where
+    // within those card divs there are front-face class divs for the hidden parts of the card
+    // card side that player will see
+    const backFace = document.createElement("div");
+    backFace.classList.add("back-face");
+    backFace.textContent = "?";
+    // backFace.style.textAlign = 'center';
+
+    // there are also back-face class divs for the exposed parts of the card
+    // card with color thats hidden
+    const frontFace = document.createElement("div");
+    frontFace.classList.add("front-face");
+    frontFace.style.backgroundColor = colors[i]; // apply random colors here
+
+    // in order for it to work i have to attach the front-face & back-face to the card to make sure its one
+    card.appendChild(backFace);
+    card.appendChild(frontFace);
+
+    // but i'll have to attach these to the actual gameboard or else its just gonna be idk where
     gameboard.appendChild(card);
 
     // function for card flip
@@ -93,7 +101,8 @@ function createNewGameBoard(rows, columns) {
       // count and log every time the card is clicked
       clickCount++;
       console.log("Click Count: ", clickCount);
-      // inject html
+      // inject live counter function
+      updateClickCount();
     });
   }
 }
@@ -128,7 +137,6 @@ function randomRgbColor() {
  *
  *
  * future:
- * - add a moves counter
- * - add a timeout so after and secondscounter
+ * - add a timeout so after and seconds counter
  *
  */
