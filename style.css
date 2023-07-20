@@ -17,11 +17,9 @@ body {
     align-items: center;
 
     background-color: var(--final-main-bg-color);
-
-    /* overflow: hidden; for max size but will be different for responsiveness*/
 }
 
-main {
+/* main {
     width: 650px;
     height: 670px;
     display: flex;
@@ -30,7 +28,7 @@ main {
 
     background-color: var(--el-bg-placeholder);
     border-radius: 30px;
-}
+} */
 
 header {
     width: 100vw;
@@ -52,7 +50,7 @@ button {
     cursor: pointer;
 }
 
-.container {
+/* .container {
     width: 650px;
     height: 670px;
     display: flex;
@@ -63,9 +61,9 @@ button {
     padding: 0 10px 10px 10px;
     align-content: center;
 
-    /* width: fit-content;
+    width: fit-content;
     width: -moz-fit-content;
-    height: fit-content; */
+    height: fit-content;
 }
 
 .front-face {
@@ -95,21 +93,21 @@ button {
     margin: 5px;
     position: relative;
     transform: translateY(180deg);
-    /* transform-style: preserve-3d; will eventually allow us to actually flip the card between the front-face and back-face*/
+    transform-style: preserve-3d; will eventually allow us to actually flip the card between the front-face and back-face
     transform-style: preserve-3d;
     transform: scale(0.90);
-    /* transition: ease-in .2s; */
-    /* transition: ease-out .6s; */
+    transition: ease-in .2s;
+    transition: ease-out .6s;
     transition: transform .5s;
 }
 
-/* when you hover over the memory card */
+when you hover over the memory card
 .card:hover {
-    /* the cursor turns into a pointer */
+    the cursor turns into a pointer
     cursor: pointer;
 }
 
 .flip {
-    /* will flip the memory card horizontally  */
+    will flip the memory card horizontally 
     transform: rotateY(180deg);
-}
+} */
