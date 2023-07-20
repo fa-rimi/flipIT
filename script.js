@@ -80,7 +80,6 @@ console.dir(gameboard);
  *
  * Credits and Resources:
  *
- * For styling:
- * - https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns
+ * 
  *
  */
