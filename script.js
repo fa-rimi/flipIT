@@ -16,7 +16,7 @@ const easyBtn = document.getElementById("easy");
 easyBtn.addEventListener("click", () => {
   console.log("easy mode activated!");
   // when button is clicked it will trigger a function to create a new gameboard
-  createNewGameBoard(4, 4);
+  createNewGameBoard(2, 2);
   // ! i forgot to add values within the parameters so nothing was displaying
 });
 
@@ -24,14 +24,14 @@ easyBtn.addEventListener("click", () => {
 const mediumBtn = document.getElementById("medium");
 mediumBtn.addEventListener("click", () => {
   console.log("medium mode activated!");
-  createNewGameBoard(6, 6);
+  createNewGameBoard(4, 4);
 });
 
 // hard mode
 const hardBtn = document.getElementById("hard");
 hardBtn.addEventListener("click", () => {
   console.log("hard mode activated!");
-  createNewGameBoard(8, 8);
+  createNewGameBoard(6, 6);
 });
 
 // * new game board
