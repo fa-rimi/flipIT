@@ -23,6 +23,9 @@ hardBtn.addEventListener("click", () => {
 
 let flippedCards = []; // Array to store and keep track of all the player's flipped cards
 let clickCount = 0; // clickCount is 0 because there hasn't been any clicks yet
+let timerInterval; // Variable to store the setInterval reference for the timer
+let secondsElapsed = 0; // Variable to store the number of seconds elapsed
+let timerStarted = false; // Variable to track whether the timer has started or not
 
 function updateClickCount() {
   const clickCountElement = document.getElementById("click-count");
@@ -33,6 +36,18 @@ function updateClickCount() {
 // new gameboard will have a certain amount of cards (rows, columns), depending on the mode that was clicked
 const gameboard = document.querySelector(".gameboard");
 function createNewGameBoard(rows, columns) {
+
+  // reset
+  // clear the interval that was set with setInterval in the update
+  clearInterval(timerInterval);
+  // reset seconds to 0
+  secondsElapsed = 0;
+  timerStarted = false;
+  // HTML
+  const timerElement = document.getElementById("timer");
+  timerElement.textContent = "Time: 0 seconds";
+
+
   const totalCards = rows * columns;
 
   // blank because the gameboard shouldn't have anything in it initially and it will clear out all the cards for every new game
@@ -98,6 +113,11 @@ function createNewGameBoard(rows, columns) {
       // Inside the card click event listener, add the card to the flippedCards array
       // check if the card is not flipped and there are less than 2 cards flipped
       if (!card.classList.contains("flipped") && flippedCards.length < 2) {
+        if (!timerStarted) {
+          // start the timer if it hasn't started yet
+          timerInterval = setInterval(updateTimer, 1000); // call updateTimer every second
+          timerStarted = true;
+        }
         // if conditions are met it will add the clicked cards to the flippedCard array using push
         card.classList.add("flipped");
         flippedCards.push(card);
@@ -154,7 +174,7 @@ function gameLoop() {
       setTimeout(() => {
         card1.classList.remove("flipped");
         card2.classList.remove("flipped");
-        // and clear out flipped cards 
+        // and clear out flipped cards
         flippedCards = [];
       }, 1000);
     }
@@ -163,5 +183,27 @@ function gameLoop() {
     setTimeout(() => {
       gameboard.style.pointerEvents = "auto";
     }, 1000);
+  }
+}
+
+function updateTimer() {
+  secondsElapsed++;
+  const timerElement = document.getElementById("timer");
+  timerElement.textContent = `Time: ${secondsElapsed} seconds`;
+  console.log("Time elapsed: ", secondsElapsed, " seconds");
+
+  // Check if all cards are flipped face-up (all cards have class "flipped")
+  const allCards = document.querySelectorAll(".memory-cards");
+  const flippedCardsCount = document.querySelectorAll(".flipped").length;
+
+  if (flippedCardsCount === allCards.length) {
+    // All cards are face-up, stop the timer
+    clearInterval(timerInterval);
+    console.log(
+      "Congratulations! You completed the game in ",
+      secondsElapsed,
+      " seconds."
+    );
+    timerElement.textContent = `Congratulations! You completed the game in ${secondsElapsed} seconds.`;
   }
 }
