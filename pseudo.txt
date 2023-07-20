@@ -1,2 +1,112 @@
 Here is my (thought) process: Enjoy =D 
 
+/**
+ *
+ * * Game: flipIT ****
+ *
+ * 💡 My thought process: (and steps i took)
+ * ✨ i will not create divs in HTML because DOM is my best friend ✨
+ *
+ * user will have the option to click easy, medium, or hard mode
+ * when game mode is clicked it will trigger a function to createNewGameBoard
+ * the game will display a different amount of cards 4x4, 6x6, 8x8 =D
+ *
+ */
+
+// easy mode
+const easyBtn = document.getElementById("easy");
+easyBtn.addEventListener("click", () => {
+  console.log("easy mode activated!");
+  // when button is clicked it will trigger a function to create a new gameboard
+  createNewGameBoard(4, 4);
+});
+
+// medium mode
+const mediumBtn = document.getElementById("medium");
+mediumBtn.addEventListener("click", () => {
+  console.log("medium mode activated!");
+  createNewGameBoard();
+});
+
+// hard mode
+const hardBtn = document.getElementById("hard");
+hardBtn.addEventListener("click", () => {
+  console.log("hard mode activated!");
+  createNewGameBoard();
+});
+
+// * new game board
+// new gameboard will have a certain amount of cards (rows, columns), depending on the mode that was clicked
+const gameboard = document.querySelector(".gameboard");
+function createNewGameBoard(rows, columns) {
+  const totalCards = rows * columns;
+
+  gameboard.innerHTML = "";
+  // blank because the gameboard shouldn't have anything in it initially and it will clear out all the cards for every new game
+  gameboard.style.gridTemplateColumns(`repeat(${columns}, 1fr)`);
+  gameboard.style.gridTemplateRows(`repeat(${rows}, 1fr)`);
+  // for the row and column the specific card will repeat based on the amount requested by the mode
+  // the card will then only take up 1 fraction(1fr) of the space in the row/column
+  // for example: in a 4x4 the cards will repeat (4 column cards and each card will take up 1/4 space)
+
+
+  // create a loop that says that if i <= totalCards it will increment until it reaches the total amount
+  // then it will create card divs with memory-card class
+  // within those card divs there are front-face class divs for the hidden parts of the card
+  // there are also back-face class divs for the exposed parts of the card
+  // in order for it to work i have to attach the front-face & back-face to the card to make sure its one
+  // probably using append
+  // but i'll have to attach these to the actual gameboard or else its just gonna be idk where
+  for (let i = 0; i < totalCards; i++) {
+    const card = document.createElement('div')
+    // create and add class list
+    card.classList.add('memory-cards');
+
+    // card with color thats hidden
+    const frontFace = document.createElement('div')
+    frontFace.classList.add('front-face');
+
+    // card side that player will see
+    const backFace = document.createElement('div')
+    backFace.classList.add('back-face');
+    backFace.textContent = '?';
+    
+    card.appendChild(frontFace);
+    card.appendChild(backFace);
+    gameboard.appendChild(card);
+}
+}
+console.dir(gameboard);
+/**
+ *
+ * Credits and Resources:
+ *
+ * For styling:
+ * - https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns
+ *
+ */
+
+==========================================================================================
+
+!! Mistakes I Made & Learned From !!
+- Problem: When I clicked on easy, medium, or hard I kept getting an error
+    - Uncaught TypeError: gameboard.style.gridTemplateColumns is not a function
+    at createNewGameBoard (script.js:44:19)
+    at HTMLButtonElement.<anonymous> (script.js:19:3)
+
+    - why? because i wrote:
+    -   gameboard.style.gridTemplateColumns(`repeat(${columns}, 1fr)`);
+        gameboard.style.gridTemplateRows(`repeat(${rows}, 1fr)`);
+    - gridTemplateColumns & gridTemplateRows are not methods but writing (`repeat(${columns}, 1fr)`) in parenthesis made it seem like on so I got a type error
+
+    - how did i fix it?
+    -   gameboard.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+    -   because this is a property that can directly be assigned to gridTemplateColumns
+-------------------------------------------------------------------------------------------
+
+- Problem: When I click on easy, medium, and hard nothing is showing on the game board
+    - why? because i forgot to add the values/parameters in createNewGameBoard(); in the btn event listener. since its blank its making 0 rows and 0 columns :(
+
+    - how did i fix it?
+    - after each event listener for the three different modes, i added the amount of cards each one needs. for ex. easy => createNewGameBoard(4, 4); medium => createNewGameBoard(6, 6); hard => createNewGameBoard(8, 8);
+
