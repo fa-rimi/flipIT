@@ -38,6 +38,8 @@ const gameboard = document.querySelector(".gameboard");
 function createNewGameBoard(rows, columns) {
 
   // reset
+    // reset click count
+    clickCount = 0;
   // clear the interval that was set with setInterval in the update
   clearInterval(timerInterval);
   // reset seconds to 0
