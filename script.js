@@ -147,6 +147,7 @@ function randomRgbColor() {
 function gameLoop() {
   // creating a constant variable that allows us to keep track of how many cards are currently flipped
   const flippedCardCount = flippedCards.length;
+  document.querySelectorAll(".flipped");
 
   // create an if else saying if the amount of flipped cards on the board is === 2
   if (flippedCardCount === 2) {
