@@ -1,108 +1,57 @@
-:root {
-    --main-bg-placeholder: beige;
-    --el-bg-placeholder: gray;
-    --front-bg-placeholder: whitesmoke;
-    --back-bg-placeholder: brown;
-
-    --final-main-bg: #F3F7F0;
-}
-
 html,
 body {
     height: 100vh;
     width: 100vw;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    background-color: var(--final-main-bg-color);
 }
 
 header {
     width: 100vw;
-    height: 85px;
     position: fixed;
     top: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 button {
-    height: 40px;
-    width: 80px;
+    height: 30px;
+    width: 90px;
     border-radius: 30px;
-    margin: 0 20px 0 20px;
-
-    cursor: pointer;
-}
-
-.gameboard {
-    width: 700px;
-    height: 700px;
     margin: 20px;
 }
 
-/* .container {
-    width: 650px;
-    height: 670px;
+.container {
+    width: 700px;
+    height: 700px;
+    padding: 10px;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    align-items: stretch;
-    flex: 1 1;
-    padding: 0 10px 10px 10px;
-    align-content: center;
-
-    width: fit-content;
-    width: -moz-fit-content;
-    height: fit-content;
+    align-items: center;
+    border-radius: 30px;
+    background-color: gray;
+    border: 1px solid darkgray;
+    -webkit-box-shadow: 5px 4px 20px 3px rgba(0, 0, 0, 0.58) inset;
+    -moz-box-shadow: 5px 4px 20px 3px rgba(0, 0, 0, 0.58) inset;
+    box-shadow: 5px 4px 20px 3px rgba(0, 0, 0, 0.58) inset;
 }
 
-.front-face {
-    width: 100%;
-    height: 100%;
-    position: absolute;
+.gameboard {
+    width: 680px;
+    height: 680px;
+    margin: 0 auto;
+}
+
+.memory-cards {
     border-radius: 25px;
-    background-color: var(--front-bg-placeholder);
 }
 
 .back-face {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    border-radius: 25px;
-    background-color: var(--back-bg-placeholder);
-    background-position-y: center;
-    backface-visibility: hidden;
+    background-color: black;
 }
 
-.card {
-    height: 270px;
-    width: 270px;
-    border-radius: 25px;
-    background-color: var(--front-bg-placeholder);
-    box-shadow: -4px 4px;
-    margin: 5px;
-    position: relative;
-    transform: translateY(180deg);
-    transform-style: preserve-3d; will eventually allow us to actually flip the card between the front-face and back-face
-    transform-style: preserve-3d;
-    transform: scale(0.90);
-    transition: ease-in .2s;
-    transition: ease-out .6s;
-    transition: transform .5s;
-}
+.front-face {
 
-when you hover over the memory card
-.card:hover {
-    the cursor turns into a pointer
-    cursor: pointer;
 }
-
-.flip {
-    will flip the memory card horizontally 
-    transform: rotateY(180deg);
-} */

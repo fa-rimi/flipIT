@@ -46,15 +46,35 @@ function createNewGameBoard(rows, columns) {
   // for the row and column the specific card will repeat based on the amount requested by the mode
   // the card will then only take up 1 fraction(1fr) of the space in the row/column
   // for example: in a 4x4 the cards will repeat (4 column cards and each card will take up 1/4 space)
-  
+
+
   // create a loop that says that if i <= totalCards it will increment until it reaches the total amount
-  // then it will create card divs with memory-card class 
+  // then it will create card divs with memory-card class
   // within those card divs there are front-face class divs for the hidden parts of the card
   // there are also back-face class divs for the exposed parts of the card
   // in order for it to work i have to attach the front-face & back-face to the card to make sure its one
   // probably using append
   // but i'll have to attach these to the actual gameboard or else its just gonna be idk where
+  for (let i = 0; i < totalCards; i++) {
+    const card = document.createElement('div')
+    // create and add class list
+    card.classList.add('memory-cards');
+
+    // card with color thats hidden
+    const frontFace = document.createElement('div')
+    frontFace.classList.add('front-face');
+
+    // card side that player will see
+    const backFace = document.createElement('div')
+    backFace.classList.add('back-face');
+    backFace.textContent = '?';
+    
+    card.appendChild(frontFace);
+    card.appendChild(backFace);
+    gameboard.appendChild(card);
 }
+}
+console.dir(gameboard);
 /**
  *
  * Credits and Resources:
