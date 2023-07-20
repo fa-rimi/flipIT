@@ -19,17 +19,6 @@ body {
     background-color: var(--final-main-bg-color);
 }
 
-/* main {
-    width: 650px;
-    height: 670px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-
-    background-color: var(--el-bg-placeholder);
-    border-radius: 30px;
-} */
-
 header {
     width: 100vw;
     height: 85px;
@@ -48,6 +37,12 @@ button {
     margin: 0 20px 0 20px;
 
     cursor: pointer;
+}
+
+.gameboard {
+    width: 700px;
+    height: 700px;
+    margin: 20px;
 }
 
 /* .container {
