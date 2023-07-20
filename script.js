@@ -9,3 +9,20 @@
  * 
  */
 
+// easy mode
+const easyBtn = document.getElementById('easy')
+easyBtn.addEventListener("click", () => {
+    console.log("easy mode activated!");
+});
+
+// medium mode
+const mediumBtn = document.getElementById('medium')
+mediumBtn.addEventListener("click",() => {
+    console.log("medium mode activated!");
+});
+
+// hard mode
+const hardBtn = document.getElementById("hard")
+hardBtn.addEventListener("click", () => {
+    console.log("hard mode activated!");
+})
