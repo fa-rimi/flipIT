@@ -48,6 +48,8 @@ button {
     width: 80px;
     border-radius: 30px;
     margin: 0 20px 0 20px;
+
+    cursor: pointer;
 }
 
 .container {
@@ -105,5 +107,9 @@ button {
 .card:hover {
     /* the cursor turns into a pointer */
     cursor: pointer;
+}
 
+.flip {
+    /* will flip the memory card horizontally  */
+    transform: rotateY(180deg);
 }
