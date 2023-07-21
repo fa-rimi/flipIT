@@ -256,9 +256,16 @@ modeToggle.addEventListener("change", () => {
     const selectedMode = modeToggle.value;
     
     if (selectedMode === "limited") {
-        console.log("Limited mode activated!");
-        // Call a function or perform any actions you want for limited mode
-        // For example, you could create a new game board with limited cards, etc.
+        console.log("limited mode activated!");
+        // call back function 
+        createNewLimitedGameBoard();
     }
 });
+
+function createNewLimitedGameBoard() {
+  console.log("creating new limited gameboard");
+  createNewGameBoard();
+  // timeLimit();
+}
+
 
