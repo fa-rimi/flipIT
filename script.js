@@ -71,19 +71,6 @@ function createNewGameBoard(rows, columns) {
     //
   }
 
-  // limit HSL
-
-  // function randomColor() {
-  //   const hue = Math.floor(Math.random() * 361);
-  //   const saturation = 73;
-  //   const light = 40;
-  
-  //   const h = hue / 360;
-  //   const s = saturation / 100;
-  //   const l = light / 100;
-  // }
-
-
   // shuffle color array using Fisher-Yates shuffle algorithm
   for (let i = colors.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
