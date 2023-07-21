@@ -89,7 +89,7 @@ function createNewGameBoard(rows, columns) {
   timerStarted = false;
   // HTML
   const timerElement = document.getElementById("timer");
-  timerElement.textContent = "Time: 0 seconds";
+  timerElement.textContent = "Time: 00:00";
 
   const totalCards = rows * columns;
 
