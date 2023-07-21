@@ -22,10 +22,11 @@ easyBtn.addEventListener("click", () => {
   // when button is clicked it will trigger a function to create a new gameboard
 
   if (selectedMode === "limited") {
-    startLimitedGameMode()
+    startLimitedGameMode();
+    createNewGameBoard(2, 2);
   } else {
-  createNewGameBoard(2, 2);
-  // ! i forgot to add values within the parameters so nothing was displaying
+    createNewGameBoard(2, 2);
+    // ! i forgot to add values within the parameters so nothing was displaying
   }
 });
 
@@ -33,14 +34,34 @@ easyBtn.addEventListener("click", () => {
 const mediumBtn = document.getElementById("medium");
 mediumBtn.addEventListener("click", () => {
   console.log("medium mode activated!");
-  createNewGameBoard(4, 4);
+
+  // check the selected mode from the mode-toggle dropdown
+  const selectedMode = modeToggle.value;
+  // when button is clicked it will trigger a function to create a new gameboard
+
+  if (selectedMode === "limited") {
+    startLimitedGameMode();
+    createNewGameBoard(4, 4);
+  } else {
+    createNewGameBoard(4, 4);
+  }
 });
 
 // hard mode
 const hardBtn = document.getElementById("hard");
 hardBtn.addEventListener("click", () => {
   console.log("hard mode activated!");
-  createNewGameBoard(6, 6);
+
+  // check the selected mode from the mode-toggle dropdown
+  const selectedMode = modeToggle.value;
+  // when button is clicked it will trigger a function to create a new gameboard
+
+  if (selectedMode === "limited") {
+    startLimitedGameMode();
+    createNewGameBoard(6, 6);
+  } else {
+    createNewGameBoard(6, 6);
+  }
 });
 
 let flippedCards = []; // Array to store and keep track of all the player's flipped cards
