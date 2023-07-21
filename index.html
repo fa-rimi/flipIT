@@ -9,20 +9,29 @@
     <!-- styling -->
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/favicon/icons8-code-blocks-bubbles-32.png" type="image/x-icon">
-
+    <!-- font-family: 'Poppins', sans-serif; -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap" rel="stylesheet">
     <!-- script -->
     <script defer src="script.js"></script>
 </head>
 
 <body>
     <header>
+        <div class="intro">
+        <h1>flip IT</h1>
+        <p>flip the cards <br> match the colors</p>
+    </div>
         <div class="mode">
             <button type="button" id="easy">Easy</button>
             <button type="button" id="medium">Medium</button>
             <button type="button" id="hard">Hard</button>
-            <div id="click-count">Click Count: 0</div>
-            <div id="timer">Time: 0 seconds</div>
         </div>
+            <div class="stats">
+                <div id="click-count">Click Count: 0</div>
+                <div id="timer">Time: 0 seconds</div>
+            </div>
     </header>
     <main>
         <div class="container">

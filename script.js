@@ -68,7 +68,7 @@ function createNewGameBoard(rows, columns) {
     // push each color twice in the array so two cards to have the same color & matching pairs
     colors.push(randomColor, randomColor);
     console.log(colors[i]);
-    // 
+    //
   }
 
   // limit hue,
@@ -146,9 +146,7 @@ function randomRgbColor() {
   return `rgb(${r}, ${g}, ${b})`;
 
   // how can i make this more accessible to people that have color vision deficiency? have to figure out a way to limit the HSL
-
 }
-
 
 // gameLoop is responsible for checking all of the flipped cards as well as running the game logic
 function gameLoop() {
@@ -196,9 +194,24 @@ function gameLoop() {
 
 function updateTimer() {
   secondsElapsed++;
+
+  const minutes = Math.floor(secondsElapsed / 60);
+  const seconds = secondsElapsed % 60;
+
   const timerElement = document.getElementById("timer");
-  timerElement.textContent = `Time: ${secondsElapsed} seconds`;
-  console.log("Time elapsed: ", secondsElapsed, " seconds");
+
+  // Format the minutes and seconds with leading zeros if needed
+  const formattedMinutes = String(minutes).padStart(2, "0");
+  const formattedSeconds = String(seconds).padStart(2, "0");
+
+  timerElement.textContent = `Time: ${formattedMinutes}:${formattedSeconds}`;
+  console.log(
+    "Time elapsed: ",
+    formattedMinutes,
+    " minutes ",
+    formattedSeconds,
+    " seconds"
+  );
 
   // Check if all cards are flipped face-up (all cards have class "flipped")
   const allCards = document.querySelectorAll(".memory-cards");
@@ -209,9 +222,28 @@ function updateTimer() {
     clearInterval(timerInterval);
     console.log(
       "Congratulations! You completed the game in ",
-      secondsElapsed,
+      formattedMinutes,
+      " minutes ",
+      formattedSeconds,
       " seconds."
     );
-    timerElement.textContent = `Congratulations! You completed the game in ${secondsElapsed} seconds.`;
+
+    // Clear the game board after 8 seconds
+    setTimeout(() => {
+      gameboard.innerHTML = "";
+
+      // Create a new element for the congratulations message
+      const congratulationsMessage = document.createElement("div");
+      congratulationsMessage.textContent = `Congratulations! You completed the game in ${formattedMinutes} minutes ${formattedSeconds} seconds.`;
+      congratulationsMessage.classList.add("congratulations");
+
+      // Append the message to the game board
+      gameboard.appendChild(congratulationsMessage);
+    });
+
+    // Reload the page after 10 seconds (8 seconds to display the message and 2 seconds for clearing transition)
+    // setTimeout(() => {
+    //   location.reload();
+    // }, 10000);
   }
 }
