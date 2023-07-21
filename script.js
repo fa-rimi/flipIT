@@ -1,10 +1,32 @@
+// define the event listener function for the mode-toggle dropdown
+const modeToggle = document.getElementById("mode-toggle");
+
+// add an event listener for the change event on the mode-toggle element
+modeToggle.addEventListener("change", () => {
+  const selectedMode = modeToggle.value;
+
+  if (selectedMode === "limited") {
+    console.log("limited mode activated!");
+  } else {
+    console.log("normal mode activated!");
+  }
+});
+
 // easy mode
 const easyBtn = document.getElementById("easy");
 easyBtn.addEventListener("click", () => {
   console.log("easy mode activated!");
+
+  // check the selected mode from the mode-toggle dropdown
+  const selectedMode = modeToggle.value;
   // when button is clicked it will trigger a function to create a new gameboard
+
+  if (selectedMode === "limited") {
+    startLimitedGameMode()
+  } else {
   createNewGameBoard(2, 2);
   // ! i forgot to add values within the parameters so nothing was displaying
+  }
 });
 
 // medium mode
@@ -247,16 +269,6 @@ function updateTimer() {
 }
 
 // ****** limited game mode ****** //
-// Select the mode-toggle element
-const modeToggle = document.getElementById("mode-toggle");
-
-// Add an event listener for the change event on the mode-toggle element
-modeToggle.addEventListener("change", () => {
-  const selectedMode = modeToggle.value;
-
-  if (selectedMode === "limited") {
-    console.log("limited mode activated!");
-  } else {
-    console.log("normal mode activated!");
-  }
-});
+function startLimitedGameMode() {
+  console.log("start limited game mode");
+}
