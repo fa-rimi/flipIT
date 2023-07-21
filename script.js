@@ -71,7 +71,18 @@ function createNewGameBoard(rows, columns) {
     //
   }
 
-  // limit hue,
+  // limit HSL
+
+  // function randomColor() {
+  //   const hue = Math.floor(Math.random() * 361);
+  //   const saturation = 73;
+  //   const light = 40;
+  
+  //   const h = hue / 360;
+  //   const s = saturation / 100;
+  //   const l = light / 100;
+  // }
+
 
   // shuffle color array using Fisher-Yates shuffle algorithm
   for (let i = colors.length - 1; i > 0; i--) {
@@ -141,8 +152,11 @@ function createNewGameBoard(rows, columns) {
 function randomRgbColor() {
   // I multiplied it to 256 because rbg values range from 0 - 255; the 256 is exclusive
   const r = Math.floor(Math.random() * 256);
+  // 
   const g = Math.floor(Math.random() * 256);
+  //
   const b = Math.floor(Math.random() * 256);
+  //
   // The function returns a string in the "rgb(r, g, b)" format, where r, g, and b are random values which will then be applied to the frontFace
   return `rgb(${r}, ${g}, ${b})`;
 
@@ -242,10 +256,5 @@ function updateTimer() {
       // Append the message to the game board
       gameboard.appendChild(congratulationsMessage);
     });
-
-    // Reload the page after 4 seconds 
-    // setTimeout(() => {
-    //   location.reload();
-    // }, 9000);
   }
 }

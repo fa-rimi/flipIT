@@ -10,7 +10,7 @@ body {
     align-items: center;
 
     font-family: 'Poppins', sans-serif;
-
+    background-color: gray;
 }
 
 header {
@@ -70,7 +70,7 @@ button {
     display: flex;
     align-items: center;
     border-radius: 30px;
-    background-color: gray;
+    background-color: white;
     border: 1px solid darkgray;
     -webkit-box-shadow: 5px 4px 20px 3px rgba(0, 0, 0, 0.58) inset;
     -moz-box-shadow: 5px 4px 20px 3px rgba(0, 0, 0, 0.58) inset;
