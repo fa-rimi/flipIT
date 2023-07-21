@@ -137,6 +137,7 @@ function createNewGameBoard(rows, columns) {
   }
 }
 
+// * random color generator without limitation
 function randomRgbColor() {
   // I multiplied it to 256 because rbg values range from 0 - 255; the 256 is exclusive
   const r = Math.floor(Math.random() * 256);
@@ -148,7 +149,7 @@ function randomRgbColor() {
   // how can i make this more accessible to people that have color vision deficiency? have to figure out a way to limit the HSL
 }
 
-// gameLoop is responsible for checking all of the flipped cards as well as running the game logic
+// * gameLoop is responsible for checking all of the flipped cards as well as running the game logic
 function gameLoop() {
   // creating a constant variable that allows us to keep track of how many cards are currently flipped
   const flippedCardCount = flippedCards.length;
@@ -192,6 +193,7 @@ function gameLoop() {
   }
 }
 
+// * time tracker
 function updateTimer() {
   secondsElapsed++;
 
@@ -228,7 +230,7 @@ function updateTimer() {
       " seconds."
     );
 
-    // Clear the game board after 8 seconds
+    // Clear the game board after 5 seconds
     setTimeout(() => {
       gameboard.innerHTML = "";
 
@@ -241,9 +243,9 @@ function updateTimer() {
       gameboard.appendChild(congratulationsMessage);
     });
 
-    // Reload the page after 10 seconds (8 seconds to display the message and 2 seconds for clearing transition)
+    // Reload the page after 4 seconds 
     // setTimeout(() => {
     //   location.reload();
-    // }, 10000);
+    // }, 9000);
   }
 }
