@@ -60,6 +60,7 @@ button {
 .stats {
     text-align: center;
     font-weight: 500;
+    margin-bottom: 50px;
 }
 
 .container {
@@ -141,4 +142,18 @@ button {
 
 .congratulations {
     text-align: center;
+}
+
+.links {
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+}
+
+img{
+    width: 20px;
 }
