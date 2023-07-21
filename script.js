@@ -139,7 +139,7 @@ function createNewGameBoard(rows, columns) {
 function randomRgbColor() {
   // I multiplied it to 256 because rbg values range from 0 - 255; the 256 is exclusive
   const r = Math.floor(Math.random() * 256);
-  // 
+  //
   const g = Math.floor(Math.random() * 256);
   //
   const b = Math.floor(Math.random() * 256);
@@ -245,3 +245,20 @@ function updateTimer() {
     });
   }
 }
+
+// ****** limited game mode ****** //
+// Define the event listener function for the mode-toggle dropdown
+// Select the mode-toggle element
+const modeToggle = document.getElementById("mode-toggle");
+
+// Add an event listener for the change event on the mode-toggle element
+modeToggle.addEventListener("change", () => {
+    const selectedMode = modeToggle.value;
+    
+    if (selectedMode === "limited") {
+        console.log("Limited mode activated!");
+        // Call a function or perform any actions you want for limited mode
+        // For example, you could create a new game board with limited cards, etc.
+    }
+});
+
