@@ -72,9 +72,9 @@ button {
     border-radius: 30px;
     background-color: white;
     border: 1px solid darkgray;
-    -webkit-box-shadow: 5px 4px 20px 3px rgba(0, 0, 0, 0.58) inset;
-    -moz-box-shadow: 5px 4px 20px 3px rgba(0, 0, 0, 0.58) inset;
-    box-shadow: 5px 4px 20px 3px rgba(0, 0, 0, 0.58) inset;
+    -webkit-box-shadow: 5px 4px 20px 3px rgba(0, 0, 0, 0.58);
+    -moz-box-shadow: 5px 4px 20px 3px rgba(0, 0, 0, 0.58);
+    box-shadow: 5px 4px 20px 3px rgba(0, 0, 0, 0.58);
 }
 
 .gameboard {
