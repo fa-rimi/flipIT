@@ -253,19 +253,21 @@ const modeToggle = document.getElementById("mode-toggle");
 
 // Add an event listener for the change event on the mode-toggle element
 modeToggle.addEventListener("change", () => {
-    const selectedMode = modeToggle.value;
-    
-    if (selectedMode === "limited") {
-        console.log("limited mode activated!");
-        // call back function 
-        createNewLimitedGameBoard();
-    }
+  const selectedMode = modeToggle.value;
+
+  if (selectedMode === "limited") {
+    console.log("limited mode activated!");
+    // call back function
+    createNewLimitedGameBoard();
+  }
 });
 
 function createNewLimitedGameBoard() {
   console.log("creating new limited gameboard");
   createNewGameBoard();
-  // timeLimit();
+  startLimitedGameMode();
 }
 
-
+function startLimitedGameMode() {
+  console.log("start limited game mode");
+}
