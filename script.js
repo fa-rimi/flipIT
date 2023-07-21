@@ -247,7 +247,6 @@ function updateTimer() {
 }
 
 // ****** limited game mode ****** //
-// Define the event listener function for the mode-toggle dropdown
 // Select the mode-toggle element
 const modeToggle = document.getElementById("mode-toggle");
 
@@ -257,17 +256,7 @@ modeToggle.addEventListener("change", () => {
 
   if (selectedMode === "limited") {
     console.log("limited mode activated!");
-    // call back function
-    createNewLimitedGameBoard();
+  } else {
+    console.log("normal mode activated!");
   }
 });
-
-function createNewLimitedGameBoard() {
-  console.log("creating new limited gameboard");
-  createNewGameBoard();
-  startLimitedGameMode();
-}
-
-function startLimitedGameMode() {
-  console.log("start limited game mode");
-}
