@@ -68,7 +68,10 @@ function createNewGameBoard(rows, columns) {
     // push each color twice in the array so two cards to have the same color & matching pairs
     colors.push(randomColor, randomColor);
     console.log(colors[i]);
+    // 
   }
+
+  // limit hue,
 
   // shuffle color array using Fisher-Yates shuffle algorithm
   for (let i = colors.length - 1; i > 0; i--) {
@@ -141,7 +144,11 @@ function randomRgbColor() {
   const b = Math.floor(Math.random() * 256);
   // The function returns a string in the "rgb(r, g, b)" format, where r, g, and b are random values which will then be applied to the frontFace
   return `rgb(${r}, ${g}, ${b})`;
+
+  // how can i make this more accessible to people that have color vision deficiency? have to figure out a way to limit the HSL
+
 }
+
 
 // gameLoop is responsible for checking all of the flipped cards as well as running the game logic
 function gameLoop() {
