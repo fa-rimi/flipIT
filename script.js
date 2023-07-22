@@ -1,24 +1,78 @@
+// define the event listener function for the mode-toggle dropdown
+const modeToggle = document.getElementById("mode-toggle");
+
+// add an event listener for the change event on the mode-toggle element
+modeToggle.addEventListener("change", () => {
+  const selectedMode = modeToggle.value;
+  const timerElement = document.getElementById("timer"); // get the timer element
+
+  if (selectedMode === "limited") {
+    console.log("limited mode activated!");
+
+    // update the timerElement text with the time limit
+    timerElement.textContent = "Time Limit";
+
+    // start the limited game mode with the specified time limit
+    startLimitedGameMode();
+  } else {
+    console.log("normal mode activated!");
+
+    // if it's not the limited mode, set the default timer text
+    timerElement.textContent = "Time: 00:00";
+  }
+});
+
 // easy mode
 const easyBtn = document.getElementById("easy");
 easyBtn.addEventListener("click", () => {
   console.log("easy mode activated!");
+
+  // check the selected mode from the mode-toggle dropdown
+  const selectedMode = modeToggle.value;
   // when button is clicked it will trigger a function to create a new gameboard
-  createNewGameBoard(2, 2);
-  // ! i forgot to add values within the parameters so nothing was displaying
+
+  // let timeLimitInSeconds
+  if (selectedMode === "limited") {
+    startLimitedGameMode(5);
+    createNewGameBoard(2, 2);
+  } else {
+    createNewGameBoard(2, 2);
+    // ! i forgot to add values within the parameters so nothing was displaying
+  }
 });
 
 // medium mode
 const mediumBtn = document.getElementById("medium");
 mediumBtn.addEventListener("click", () => {
   console.log("medium mode activated!");
-  createNewGameBoard(4, 4);
+
+  // check the selected mode from the mode-toggle dropdown
+  const selectedMode = modeToggle.value;
+  // when button is clicked it will trigger a function to create a new gameboard
+
+  if (selectedMode === "limited") {
+    startLimitedGameMode(90);
+    createNewGameBoard(4, 4);
+  } else {
+    createNewGameBoard(4, 4);
+  }
 });
 
 // hard mode
 const hardBtn = document.getElementById("hard");
 hardBtn.addEventListener("click", () => {
   console.log("hard mode activated!");
-  createNewGameBoard(6, 6);
+
+  // check the selected mode from the mode-toggle dropdown
+  const selectedMode = modeToggle.value;
+  // when button is clicked it will trigger a function to create a new gameboard
+
+  if (selectedMode === "limited") {
+    startLimitedGameMode(300);
+    createNewGameBoard(6, 6);
+  } else {
+    createNewGameBoard(6, 6);
+  }
 });
 
 let flippedCards = []; // Array to store and keep track of all the player's flipped cards
@@ -46,7 +100,7 @@ function createNewGameBoard(rows, columns) {
   timerStarted = false;
   // HTML
   const timerElement = document.getElementById("timer");
-  timerElement.textContent = "Time: 0 seconds";
+  timerElement.textContent = "Time: 00:00";
 
   const totalCards = rows * columns;
 
@@ -70,19 +124,6 @@ function createNewGameBoard(rows, columns) {
     console.log(colors[i]);
     //
   }
-
-  // limit HSL
-
-  // function randomColor() {
-  //   const hue = Math.floor(Math.random() * 361);
-  //   const saturation = 73;
-  //   const light = 40;
-  
-  //   const h = hue / 360;
-  //   const s = saturation / 100;
-  //   const l = light / 100;
-  // }
-
 
   // shuffle color array using Fisher-Yates shuffle algorithm
   for (let i = colors.length - 1; i > 0; i--) {
@@ -152,7 +193,7 @@ function createNewGameBoard(rows, columns) {
 function randomRgbColor() {
   // I multiplied it to 256 because rbg values range from 0 - 255; the 256 is exclusive
   const r = Math.floor(Math.random() * 256);
-  // 
+  //
   const g = Math.floor(Math.random() * 256);
   //
   const b = Math.floor(Math.random() * 256);
@@ -257,4 +298,9 @@ function updateTimer() {
       gameboard.appendChild(congratulationsMessage);
     });
   }
+}
+
+// ****** limited game mode ****** //
+function startLimitedGameMode(timeLimitInSeconds) {
+  console.log("start limited game mode:", timeLimitInSeconds);
 }
