@@ -4,11 +4,21 @@ const modeToggle = document.getElementById("mode-toggle");
 // add an event listener for the change event on the mode-toggle element
 modeToggle.addEventListener("change", () => {
   const selectedMode = modeToggle.value;
+  const timerElement = document.getElementById("timer"); // get the timer element
 
   if (selectedMode === "limited") {
     console.log("limited mode activated!");
+
+    // update the timerElement text with the time limit
+    timerElement.textContent = "Time Limit";
+
+    // start the limited game mode with the specified time limit
+    startLimitedGameMode();
   } else {
     console.log("normal mode activated!");
+
+    // if it's not the limited mode, set the default timer text
+    timerElement.textContent = "Time: 00:00";
   }
 });
 
@@ -21,6 +31,7 @@ easyBtn.addEventListener("click", () => {
   const selectedMode = modeToggle.value;
   // when button is clicked it will trigger a function to create a new gameboard
 
+  // let timeLimitInSeconds
   if (selectedMode === "limited") {
     startLimitedGameMode(5);
     createNewGameBoard(2, 2);
@@ -290,6 +301,6 @@ function updateTimer() {
 }
 
 // ****** limited game mode ****** //
-function startLimitedGameMode() {
-  console.log("start limited game mode");
+function startLimitedGameMode(timeLimitInSeconds) {
+  console.log("start limited game mode:", timeLimitInSeconds);
 }
