@@ -1,3 +1,11 @@
+let flippedCards = []; // Array to store and keep track of all the player's flipped cards
+let clickCount = 0; // clickCount is 0 because there hasn't been any clicks yet
+let timerInterval; // Variable to store the setInterval reference for the timer
+let secondsElapsed = 0; // Variable to store the number of seconds elapsed
+let timerStarted = false; // Variable to track whether the timer has started or not
+// Define the timeLimitInSeconds variable
+let timeLimitInSeconds = 0; // Initialize with default value
+
 // define the event listener function for the mode-toggle dropdown
 const modeToggle = document.getElementById("mode-toggle");
 
@@ -10,7 +18,7 @@ modeToggle.addEventListener("change", () => {
     console.log("limited mode activated!");
 
     // update the timerElement text with the time limit
-    timerElement.textContent = "Time Limit";
+    timerElement.textContent = "Remaining Time";
 
     // start the limited game mode with the specified time limit
     startLimitedGameMode();
@@ -34,7 +42,11 @@ easyBtn.addEventListener("click", () => {
   // let timeLimitInSeconds
   if (selectedMode === "limited") {
     createNewGameBoard(2, 2);
-    startLimitedGameMode(5000);
+    // update the timerElement text with the remaining time
+    document.getElementById(
+      "timer"
+    ).textContent = `Remaining Time: ${timeLimitInSeconds}`;
+    startLimitedGameMode(5);
   } else {
     createNewGameBoard(2, 2);
     // ! i forgot to add values within the parameters so nothing was displaying
@@ -52,7 +64,10 @@ mediumBtn.addEventListener("click", () => {
 
   if (selectedMode === "limited") {
     createNewGameBoard(4, 4);
-    startLimitedGameMode(90000);
+    document.getElementById(
+      "timer"
+    ).textContent = `Remaining Time: ${timeLimitInSeconds}`;
+    startLimitedGameMode(60);
   } else {
     createNewGameBoard(4, 4);
   }
@@ -69,17 +84,14 @@ hardBtn.addEventListener("click", () => {
 
   if (selectedMode === "limited") {
     createNewGameBoard(6, 6);
-    startLimitedGameMode(300000);
+    document.getElementById(
+      "timer"
+    ).textContent = `Remaining Time: ${timeLimitInSeconds}`;
+    startLimitedGameMode(120);
   } else {
     createNewGameBoard(6, 6);
   }
 });
-
-let flippedCards = []; // Array to store and keep track of all the player's flipped cards
-let clickCount = 0; // clickCount is 0 because there hasn't been any clicks yet
-let timerInterval; // Variable to store the setInterval reference for the timer
-let secondsElapsed = 0; // Variable to store the number of seconds elapsed
-let timerStarted = false; // Variable to track whether the timer has started or not
 
 function updateClickCount() {
   const clickCountElement = document.getElementById("click-count");
@@ -301,12 +313,35 @@ function updateTimer() {
 }
 
 // ****** limited game mode ****** //
+// timeLimitInSeconds is the duration of the limited game mode in seconds but will have to be converted to minutes and seconds
 function startLimitedGameMode(timeLimitInSeconds) {
   console.log("start limited game mode:", timeLimitInSeconds);
 
-  timeUp();
+  // setting the initial time remaining to the time limit
+  let secondsRemaining = timeLimitInSeconds; 
+
+  // update the timer element with the initial time remaining
+  const timerElement = document.getElementById("timer");
+  // using the formatTime function to convert the seconds to a minute and seconds format
+  timerElement.textContent = `Remaining Time: ${formatTime(secondsRemaining)}`;
+
+  // start the countdown timer by calling updateTimer function every second but inside this one we are decrementing it by one 
+  timerInterval = setInterval(() => {
+    secondsRemaining--;
+    // and displaying the updated remaining time
+    timerElement.textContent = `Remaining Time: ${formatTime(secondsRemaining)}`;
+
+    // if the secondsRemaining reaches 0
+    if (secondsRemaining === 0) {
+      // stop the timer when the time limit is reached
+      clearInterval(timerInterval);
+      // and call the timeUp function 
+      timeUp();
+    }
+  }, 1000);
 }
 
 function timeUp() {
-  // implement message here -- if the timeLimitedSeconds === 0 then display message saying you failed
+  // implement message here -- if the timeLimitedSeconds === 0 then display message saying you failed (respectfully)
+  console.log("You failed");
 }
