@@ -30,7 +30,7 @@ modeToggle.addEventListener("change", () => {
     }
   } else {
     console.log("normal mode activated!");
-
+    gameboard.style.pointerEvents = "auto";
     // if it's not the limited mode, set the default timer text
     timerElement.textContent = "Time: 00:00";
   }
@@ -322,36 +322,42 @@ function updateTimer() {
 // timeLimitInSeconds is the duration of the limited game mode in seconds but will have to be converted to minutes and seconds
 function startLimitedGameMode(timeLimitInSeconds) {
   console.log("start limited game mode:", timeLimitInSeconds);
-
-  // setting the initial time remaining to the time limit
-  let secondsRemaining = timeLimitInSeconds;
+  
+  // set the initial time remaining to the time limit
+  let secondsRemaining = timeLimitInSeconds; 
 
   // update the timer element with the initial time remaining
   const timerElement = document.getElementById("timer");
-  // using the formatTime function to convert the seconds to a minute and seconds format
   timerElement.textContent = `Remaining Time: ${formatTime(secondsRemaining)}`;
 
-  // start the countdown timer by calling updateTimer function every second but inside this one we are decrementing it by one
+  // start the countdown timer by calling updateTimer function every second
   timerInterval = setInterval(() => {
     secondsRemaining--;
-    // and displaying the updated remaining time
-    timerElement.textContent = `Remaining Time: ${formatTime(
-      secondsRemaining
-    )}`;
+    timerElement.textContent = `Remaining Time: ${formatTime(secondsRemaining)}`;
 
-    // if the secondsRemaining reaches 0
     if (secondsRemaining === 0) {
       // stop the timer when the time limit is reached
       clearInterval(timerInterval);
-      // and call the timeUp function
-      timeUp();
+
+      // and lock the game board
+      gameboard.style.pointerEvents = "none";
+
+      // then clear the game board after 1 second
+      setTimeout(() => {
+        gameboard.innerHTML = "";
+
+        // create a new element for the "Time's up" message
+        const timeUpMessage = document.createElement("div");
+        timeUpMessage.textContent = "Time's up! You Failed.";
+        timeUpMessage.classList.add("time-up-message");
+
+        console.log("You failed...Try again next time!");
+
+        // Append the message to the game board
+        gameboard.appendChild(timeUpMessage);
+      }, 1000);
     }
   }, 1000);
-}
-
-function timeUp() {
-  // implement message here -- if the timeLimitedSeconds === 0 then display message saying you failed (respectfully)
-  console.log("You failed");
 }
 
 // Helper function to format time in MM:SS format
