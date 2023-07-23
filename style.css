@@ -37,7 +37,7 @@ h1 {
 p {
     margin-left: 0 auto;
     padding: 5px 0 5px 10px;
-    
+
     font-weight: 200;
     border-left: black 1.5px solid;
 }
@@ -144,6 +144,14 @@ button {
     text-align: center;
 }
 
+.fail-message {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    color: red;
+}
+
 .links {
     width: 100px;
     display: flex;
@@ -154,6 +162,6 @@ a {
     text-decoration: none;
 }
 
-img{
+img {
     width: 25px;
 }

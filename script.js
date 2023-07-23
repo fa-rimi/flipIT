@@ -20,16 +20,16 @@ modeToggle.addEventListener("change", () => {
     clickCount = 0;
     clickCountElement.textContent = `Click Count: ${clickCount}`;
     // update the timerElement text with the time limit
-    timerElement.textContent = "Remaining Time";
+    timerElement.textContent = "Time Limit";
 
     // calling the startLimitedGameMode function with time limit based on the selected mode
-    if (easyBtn.classList.contains("active")) {
-      startLimitedGameMode(5);
-    } else if (mediumBtn.classList.contains("active")) {
-      startLimitedGameMode(60);
-    } else if (hardBtn.classList.contains("active")) {
-      startLimitedGameMode(120);
-    }
+    // if (easyBtn.classList.contains("active")) {
+    //   startLimitedGameMode(5);
+    // } else if (mediumBtn.classList.contains("active")) {
+    //   startLimitedGameMode(60);
+    // } else if (hardBtn.classList.contains("active")) {
+    //   startLimitedGameMode(120);
+    // }
   } else {
     console.log("normal mode activated!");
     gameboard.style.pointerEvents = "auto";
@@ -55,7 +55,8 @@ easyBtn.addEventListener("click", () => {
     timeLimitInSeconds = 5;
     document.getElementById(
       "timer"
-    ).textContent = `Remaining Time: ${formatTime(timeLimitInSeconds)}`;
+      ).textContent = `Remaining Time: ${formatTime(timeLimitInSeconds)}`;
+      startLimitedGameMode(5); 
   } else {
     createNewGameBoard(2, 2);
     // ! i forgot to add values within the parameters so nothing was displaying
@@ -76,7 +77,8 @@ mediumBtn.addEventListener("click", () => {
     timeLimitInSeconds = 60;
     document.getElementById(
       "timer"
-    ).textContent = `Remaining Time: ${formatTime(timeLimitInSeconds)}`;
+      ).textContent = `Remaining Time: ${formatTime(timeLimitInSeconds)}`;
+      startLimitedGameMode(60);
   } else {
     createNewGameBoard(4, 4);
   }
@@ -96,7 +98,8 @@ hardBtn.addEventListener("click", () => {
     timeLimitInSeconds = 120;
     document.getElementById(
       "timer"
-    ).textContent = `Remaining Time: ${formatTime(timeLimitInSeconds)}`;
+      ).textContent = `Remaining Time: ${formatTime(timeLimitInSeconds)}`;
+      startLimitedGameMode(120);
   } else {
     createNewGameBoard(6, 6);
   }
@@ -340,12 +343,7 @@ function startLimitedGameMode(timeLimitInSeconds) {
       secondsRemaining
     )}`;
 
-    if (secondsRemaining >= 0) {
-      // if there are remaining seconds, update the timer text content
-      timerElement.textContent = `Remaining Time: ${formatTime(
-        secondsRemaining
-      )}`;
-    } else {
+    if (secondsRemaining === 0) {
       // stop the timer when the time limit is reached
       clearInterval(timerInterval);
 
