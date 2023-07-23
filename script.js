@@ -303,4 +303,10 @@ function updateTimer() {
 // ****** limited game mode ****** //
 function startLimitedGameMode(timeLimitInSeconds) {
   console.log("start limited game mode:", timeLimitInSeconds);
+
+  timeUp();
+}
+
+function timeUp() {
+  // implement message here -- if the timeLimitedSeconds === 0 then display message saying you failed
 }
