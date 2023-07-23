@@ -33,8 +33,8 @@ easyBtn.addEventListener("click", () => {
 
   // let timeLimitInSeconds
   if (selectedMode === "limited") {
-    startLimitedGameMode(5);
     createNewGameBoard(2, 2);
+    startLimitedGameMode(5000);
   } else {
     createNewGameBoard(2, 2);
     // ! i forgot to add values within the parameters so nothing was displaying
@@ -51,8 +51,8 @@ mediumBtn.addEventListener("click", () => {
   // when button is clicked it will trigger a function to create a new gameboard
 
   if (selectedMode === "limited") {
-    startLimitedGameMode(90);
     createNewGameBoard(4, 4);
+    startLimitedGameMode(90000);
   } else {
     createNewGameBoard(4, 4);
   }
@@ -68,8 +68,8 @@ hardBtn.addEventListener("click", () => {
   // when button is clicked it will trigger a function to create a new gameboard
 
   if (selectedMode === "limited") {
-    startLimitedGameMode(300);
     createNewGameBoard(6, 6);
+    startLimitedGameMode(300000);
   } else {
     createNewGameBoard(6, 6);
   }
