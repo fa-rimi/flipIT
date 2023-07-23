@@ -20,8 +20,14 @@ modeToggle.addEventListener("change", () => {
     // update the timerElement text with the time limit
     timerElement.textContent = "Remaining Time";
 
-    // start the limited game mode with the specified time limit
-    startLimitedGameMode();
+    // calling the startLimitedGameMode function with time limit based on the selected mode
+    if (easyBtn.classList.contains("active")) {
+      startLimitedGameMode(5);
+    } else if (mediumBtn.classList.contains("active")) {
+      startLimitedGameMode(60);
+    } else if (hardBtn.classList.contains("active")) {
+      startLimitedGameMode(120);
+    }
   } else {
     console.log("normal mode activated!");
 
@@ -318,24 +324,26 @@ function startLimitedGameMode(timeLimitInSeconds) {
   console.log("start limited game mode:", timeLimitInSeconds);
 
   // setting the initial time remaining to the time limit
-  let secondsRemaining = timeLimitInSeconds; 
+  let secondsRemaining = timeLimitInSeconds;
 
   // update the timer element with the initial time remaining
   const timerElement = document.getElementById("timer");
   // using the formatTime function to convert the seconds to a minute and seconds format
   timerElement.textContent = `Remaining Time: ${formatTime(secondsRemaining)}`;
 
-  // start the countdown timer by calling updateTimer function every second but inside this one we are decrementing it by one 
+  // start the countdown timer by calling updateTimer function every second but inside this one we are decrementing it by one
   timerInterval = setInterval(() => {
     secondsRemaining--;
     // and displaying the updated remaining time
-    timerElement.textContent = `Remaining Time: ${formatTime(secondsRemaining)}`;
+    timerElement.textContent = `Remaining Time: ${formatTime(
+      secondsRemaining
+    )}`;
 
     // if the secondsRemaining reaches 0
     if (secondsRemaining === 0) {
       // stop the timer when the time limit is reached
       clearInterval(timerInterval);
-      // and call the timeUp function 
+      // and call the timeUp function
       timeUp();
     }
   }, 1000);
