@@ -340,7 +340,12 @@ function startLimitedGameMode(timeLimitInSeconds) {
       secondsRemaining
     )}`;
 
-    if (secondsRemaining === 0) {
+    if (secondsRemaining >= 0) {
+      // if there are remaining seconds, update the timer text content
+      timerElement.textContent = `Remaining Time: ${formatTime(
+        secondsRemaining
+      )}`;
+    } else {
       // stop the timer when the time limit is reached
       clearInterval(timerInterval);
 
