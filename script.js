@@ -12,10 +12,13 @@ const modeToggle = document.getElementById("mode-toggle");
 modeToggle.addEventListener("change", () => {
   const selectedMode = modeToggle.value;
   const timerElement = document.getElementById("timer"); // get the timer element
-  
+  const clickCountElement = document.getElementById("click-count"); // get the click count element
+
   if (selectedMode === "limited") {
     console.log("limited mode activated!");
-
+    gameboard.innerHTML = "";
+    clickCount = 0;
+    clickCountElement.textContent = `Click Count: ${clickCount}`;
     // update the timerElement text with the time limit
     timerElement.textContent = "Remaining Time";
 
@@ -28,10 +31,11 @@ modeToggle.addEventListener("change", () => {
       startLimitedGameMode(120);
     }
   } else {
-    
     console.log("normal mode activated!");
     gameboard.style.pointerEvents = "auto";
-    // if it's not the limited mode, set the default timer text
+    gameboard.innerHTML = "";
+    clickCount = 0;
+    clickCountElement.textContent = `Click Count: ${clickCount}`;
     timerElement.textContent = "Time: 00:00";
   }
 });
@@ -312,9 +316,9 @@ function updateTimer() {
 // timeLimitInSeconds is the duration of the limited game mode in seconds but will have to be converted to minutes and seconds
 function startLimitedGameMode(timeLimitInSeconds) {
   console.log("start limited game mode:", timeLimitInSeconds);
-  
+
   // set the initial time remaining to the time limit
-  let secondsRemaining = timeLimitInSeconds; 
+  let secondsRemaining = timeLimitInSeconds;
 
   // update the timer element with the initial time remaining
   const timerElement = document.getElementById("timer");
@@ -323,7 +327,9 @@ function startLimitedGameMode(timeLimitInSeconds) {
   // start the countdown timer by calling updateTimer function every second
   timerInterval = setInterval(() => {
     secondsRemaining--;
-    timerElement.textContent = `Remaining Time: ${formatTime(secondsRemaining)}`;
+    timerElement.textContent = `Remaining Time: ${formatTime(
+      secondsRemaining
+    )}`;
 
     if (secondsRemaining === 0) {
       // stop the timer when the time limit is reached
