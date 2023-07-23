@@ -48,11 +48,7 @@ easyBtn.addEventListener("click", () => {
   // let timeLimitInSeconds
   if (selectedMode === "limited") {
     createNewGameBoard(2, 2);
-    // update the timerElement text with the remaining time
-    document.getElementById(
-      "timer"
-    ).textContent = `Remaining Time: ${timeLimitInSeconds}`;
-    startLimitedGameMode(5);
+    document.getElementById("timer").textContent = "Remaining Time";
   } else {
     createNewGameBoard(2, 2);
     // ! i forgot to add values within the parameters so nothing was displaying
@@ -70,10 +66,7 @@ mediumBtn.addEventListener("click", () => {
 
   if (selectedMode === "limited") {
     createNewGameBoard(4, 4);
-    document.getElementById(
-      "timer"
-    ).textContent = `Remaining Time: ${timeLimitInSeconds}`;
-    startLimitedGameMode(60);
+    document.getElementById("timer").textContent = "Remaining Time";
   } else {
     createNewGameBoard(4, 4);
   }
@@ -90,10 +83,7 @@ hardBtn.addEventListener("click", () => {
 
   if (selectedMode === "limited") {
     createNewGameBoard(6, 6);
-    document.getElementById(
-      "timer"
-    ).textContent = `Remaining Time: ${timeLimitInSeconds}`;
-    startLimitedGameMode(120);
+    document.getElementById("timer").textContent = "Remaining Time";
   } else {
     createNewGameBoard(6, 6);
   }
@@ -322,48 +312,42 @@ function updateTimer() {
 // timeLimitInSeconds is the duration of the limited game mode in seconds but will have to be converted to minutes and seconds
 function startLimitedGameMode(timeLimitInSeconds) {
   console.log("start limited game mode:", timeLimitInSeconds);
-
+  
   // set the initial time remaining to the time limit
-  let secondsRemaining = timeLimitInSeconds;
+  let secondsRemaining = timeLimitInSeconds; 
 
   // update the timer element with the initial time remaining
   const timerElement = document.getElementById("timer");
   timerElement.textContent = `Remaining Time: ${formatTime(secondsRemaining)}`;
 
-  const anyCardFlipped = document.querySelector(".flipped");
+  // start the countdown timer by calling updateTimer function every second
+  timerInterval = setInterval(() => {
+    secondsRemaining--;
+    timerElement.textContent = `Remaining Time: ${formatTime(secondsRemaining)}`;
 
-  if (anyCardFlipped) {
-    // start the countdown timer by calling updateTimer function every second
-    timerInterval = setInterval(() => {
-      secondsRemaining--;
-      timerElement.textContent = `Remaining Time: ${formatTime(
-        secondsRemaining
-      )}`;
+    if (secondsRemaining === 0) {
+      // stop the timer when the time limit is reached
+      clearInterval(timerInterval);
 
-      if (secondsRemaining === 0) {
-        // stop the timer when the time limit is reached
-        clearInterval(timerInterval);
+      // and lock the game board
+      gameboard.style.pointerEvents = "none";
 
-        // and lock the game board
-        gameboard.style.pointerEvents = "none";
+      // then clear the game board after 1 second
+      setTimeout(() => {
+        gameboard.innerHTML = "";
 
-        // then clear the game board after 1 second
-        setTimeout(() => {
-          gameboard.innerHTML = "";
+        // create a new element for the "Time's up" message
+        const timeUpMessage = document.createElement("div");
+        timeUpMessage.textContent = "Time's up! You Failed.";
+        timeUpMessage.classList.add("time-up-message");
 
-          // create a new element for the "Time's up" message
-          const timeUpMessage = document.createElement("div");
-          timeUpMessage.textContent = "Time's up! You Failed.";
-          timeUpMessage.classList.add("time-up-message");
+        console.log("You failed...Try again next time!");
 
-          console.log("You failed...Try again next time!");
-
-          // Append the message to the game board
-          gameboard.appendChild(timeUpMessage);
-        }, 1000);
-      }
-    }, 1000);
-  }
+        // Append the message to the game board
+        gameboard.appendChild(timeUpMessage);
+      }, 1000);
+    }
+  }, 1000);
 }
 
 // Helper function to format time in MM:SS format
