@@ -52,6 +52,7 @@ easyBtn.addEventListener("click", () => {
   // let timeLimitInSeconds
   if (selectedMode === "limited") {
     createNewGameBoard(2, 2);
+    timeLimitInSeconds = 5;
     document.getElementById(
       "timer"
     ).textContent = `Remaining Time: ${formatTime(timeLimitInSeconds)}`;
@@ -72,6 +73,7 @@ mediumBtn.addEventListener("click", () => {
 
   if (selectedMode === "limited") {
     createNewGameBoard(4, 4);
+    timeLimitInSeconds = 60;
     document.getElementById(
       "timer"
     ).textContent = `Remaining Time: ${formatTime(timeLimitInSeconds)}`;
@@ -91,6 +93,7 @@ hardBtn.addEventListener("click", () => {
 
   if (selectedMode === "limited") {
     createNewGameBoard(6, 6);
+    timeLimitInSeconds = 120;
     document.getElementById(
       "timer"
     ).textContent = `Remaining Time: ${formatTime(timeLimitInSeconds)}`;
