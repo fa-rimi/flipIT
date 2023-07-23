@@ -52,7 +52,9 @@ easyBtn.addEventListener("click", () => {
   // let timeLimitInSeconds
   if (selectedMode === "limited") {
     createNewGameBoard(2, 2);
-    document.getElementById("timer").textContent = "Remaining Time";
+    document.getElementById(
+      "timer"
+    ).textContent = `Remaining Time: ${formatTime(timeLimitInSeconds)}`;
   } else {
     createNewGameBoard(2, 2);
     // ! i forgot to add values within the parameters so nothing was displaying
@@ -70,7 +72,9 @@ mediumBtn.addEventListener("click", () => {
 
   if (selectedMode === "limited") {
     createNewGameBoard(4, 4);
-    document.getElementById("timer").textContent = "Remaining Time";
+    document.getElementById(
+      "timer"
+    ).textContent = `Remaining Time: ${formatTime(timeLimitInSeconds)}`;
   } else {
     createNewGameBoard(4, 4);
   }
@@ -87,7 +91,9 @@ hardBtn.addEventListener("click", () => {
 
   if (selectedMode === "limited") {
     createNewGameBoard(6, 6);
-    document.getElementById("timer").textContent = "Remaining Time";
+    document.getElementById(
+      "timer"
+    ).textContent = `Remaining Time: ${formatTime(timeLimitInSeconds)}`;
   } else {
     createNewGameBoard(6, 6);
   }
