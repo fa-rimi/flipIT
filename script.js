@@ -357,14 +357,14 @@ function startLimitedGameMode(timeLimitInSeconds) {
         gameboard.innerHTML = "";
 
         // create a new element for the "Time's up" message
-        const timeUpMessage = document.createElement("div");
-        timeUpMessage.textContent = "Time's up! You Failed.";
-        timeUpMessage.classList.add("time-up-message");
+        const failMessage = document.createElement("div");
+        failMessage.textContent = "Time's up! You Failed.";
+        failMessage.classList.add("time-up-message");
 
         console.log("You failed...Try again next time!");
 
         // Append the message to the game board
-        gameboard.appendChild(timeUpMessage);
+        gameboard.appendChild(failMessage);
       }, 1000);
     }
   }, 1000);
