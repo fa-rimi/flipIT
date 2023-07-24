@@ -13,3 +13,6 @@
 <a href="https://open.spotify.com/album/3uPOSDtQ4ZX6NbHhdIzESH?si=zM_Ape8gTUOc2HIlp7ufrg"><img src="https://img.shields.io/badge/Work Mode-1ED760?&style=for-the-badge&logo=spotify&logoColor=white"></a>
 </span>
 
+<h5>The Results: </h5>
+https://github.com/fa-rimi/flipIT/assets/109316364/7c193961-a59c-46a1-b0b0-ff81cacc0633
+
