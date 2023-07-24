@@ -14,3 +14,7 @@
 <a href="https://open.spotify.com/album/3uPOSDtQ4ZX6NbHhdIzESH?si=zM_Ape8gTUOc2HIlp7ufrg"><img src="https://img.shields.io/badge/Work Mode-1ED760?&style=for-the-badge&logo=spotify&logoColor=white"></a>
 </span>
 
+<h5>The Result: </h5>
+
+
+
