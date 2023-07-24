@@ -332,39 +332,39 @@ function startLimitedGameMode(timeLimitInSeconds) {
   const timerElement = document.getElementById("timer");
   timerElement.textContent = `Remaining Time: ${formatTime(secondsRemaining)}`;
 
-  // let anyCardsFlipped = flippedCards.length;
-  // if (anyCardsFlipped) {
-  //   // start the countdown timer by calling updateTimer function every second
-  //   timerInterval = setInterval(() => {
-  //     secondsRemaining--;
-  //     timerElement.textContent = `Remaining Time: ${formatTime(
-  //       secondsRemaining
-  //     )}`;
+  let anyCardsFlipped = flippedCards.length;
+  if (anyCardsFlipped) {
+    // start the countdown timer by calling updateTimer function every second
+    timerInterval = setInterval(() => {
+      secondsRemaining--;
+      timerElement.textContent = `Remaining Time: ${formatTime(
+        secondsRemaining
+      )}`;
 
-  //     if (secondsRemaining === 0) {
-  //       // stop the timer when the time limit is reached
-  //       clearInterval(timerInterval);
+      if (secondsRemaining === 0) {
+        // stop the timer when the time limit is reached
+        clearInterval(timerInterval);
 
-  //       // and lock the game board
-  //       gameboard.style.pointerEvents = "none";
+        // and lock the game board
+        gameboard.style.pointerEvents = "none";
 
-  //       // then clear the game board after 1 second
-  //       setTimeout(() => {
-  //         gameboard.innerHTML = "";
+        // then clear the game board after 1 second
+        setTimeout(() => {
+          gameboard.innerHTML = "";
 
-  //         // create a new element for the "Time's up" message
-  //         const failMessage = document.createElement("div");
-  //         failMessage.textContent = "Time's up! You Failed.";
-  //         failMessage.classList.add("time-up-message");
+          // create a new element for the "Time's up" message
+          const failMessage = document.createElement("div");
+          failMessage.textContent = "Time's up! You Failed.";
+          failMessage.classList.add("time-up-message");
 
-  //         console.log("You failed...Try again next time!");
+          console.log("You failed...Try again next time!");
 
-  //         // Append the message to the game board
-  //         gameboard.appendChild(failMessage);
-  //       }, 1000);
-  //     }
-  //   }, 1000);
-  // }
+          // Append the message to the game board
+          gameboard.appendChild(failMessage);
+        }, 1000);
+      }
+    }, 1000);
+  }
 }
 
 // Helper function to format time in MM:SS format
