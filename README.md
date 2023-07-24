@@ -31,6 +31,6 @@ https://github.com/fa-rimi/flipIT/assets/109316364/718c452d-2da3-4d52-be7c-138cc
 
 <h3>Next Steps: </h3>
 <ul>
-<li>Making game accessible for people who are visually impaired
+<li>Making game accessible for people who have visual impairment or color vision deficiency 
 <li>Adding a limited game mode feature that sets a time limit for game level
 </ul>
