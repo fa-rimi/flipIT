@@ -2,7 +2,7 @@
 <h1>
 <a href="https://fa-rimi.github.io/flipIT/">flip IT</a>
 </h1>
-<h2>choose a game mode, flip the cards, match the colors and win!</h2>
+<h3>choose a game mode, flip the cards, match the colors and win!</h3>
 <h6>Disclaimer: Currently working on making the game more accessible. At the moment it is not suitable for people with color vision deficiency. Thank you for your patience while I learn more about color theory and libraries 🫡</h6>
 </span>
 
