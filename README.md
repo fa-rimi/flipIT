@@ -1,4 +1,4 @@
-<span align="left">
+<span align="right">
 <h1>
 <a href="https://fa-rimi.github.io/flipIT/">flip IT</a>
 </h1>
