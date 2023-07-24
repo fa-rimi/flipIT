@@ -5,9 +5,12 @@
 <h6> choose a game mode -> flip the cards -> match the colors and win!</h6>
 </span>
 
-<h5>Languages Used: </h5>
+<h5>The Process: </h5>
 <span align="center">
-<a href="https://www.w3.org/TR/html5/" title="HTML5"><img src="https://github.com/get-icon/geticon/raw/master/icons/html-5.svg" alt="HTML5" width="40px" height="40px"></a>
-<a href="https://www.w3.org/TR/CSS/" title="CSS3"><img src="https://github.com/get-icon/geticon/raw/master/icons/css-3.svg" alt="CSS3" width="40px" height="40px"></a>
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://github.com/get-icon/geticon/raw/master/icons/javascript.svg" alt="JavaScript" width="40px" height="40px"></a>
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
+">
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+<a href="https://open.spotify.com/album/3uPOSDtQ4ZX6NbHhdIzESH?si=zM_Ape8gTUOc2HIlp7ufrg"><img src="https://img.shields.io/badge/Work Mode-1ED760?&style=for-the-badge&logo=spotify&logoColor=white"></a>
 </span>
+
