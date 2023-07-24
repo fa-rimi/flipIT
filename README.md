@@ -2,9 +2,14 @@
 <h1>
 <a href="https://fa-rimi.github.io/flipIT/">flip IT</a>
 </h1>
+
+![](https://img.shields.io/github/last-commit/fa-rimi/flipIT)
+
 <h3>choose a game mode, flip the cards, match the colors and win!</h3>
 <h6>Disclaimer: Currently working on making the game more accessible. <br>At the moment it is not suitable for people with color vision deficiency. <br>Thank you for your patience while I learn more about color theory and libraries 🫡</h6>
 </span>
+
+
 
 <h3>The Process: </h3>
 <span>
