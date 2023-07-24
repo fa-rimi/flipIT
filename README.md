@@ -11,7 +11,7 @@
 
 
 <h3>The Motivation: </h3>
-Creating a simple yet fun game that anyone can play to pass time or keep their memory sharp.
+Creating a simple yet fun game that I can play to pass time or keep my memory sharp.
 <br>
 
 <h3>The Process: </h3>
