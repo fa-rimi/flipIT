@@ -2,11 +2,11 @@
 <h1>
 <a href="https://fa-rimi.github.io/flipIT/">flip IT</a>
 </h1>
-<h3>choose a game mode, flip the cards, match the colors and win!</h3>
+<h2>choose a game mode, flip the cards, match the colors and win!</h2>
 <h6>Disclaimer: Currently working on making the game more accessible. At the moment it is not suitable for people with color vision deficiency. Thank you for your patience while I learn more about color theory and libraries 🫡</h6>
 </span>
 
-<h4>The Process: </h4>
+<h3>The Process: </h3>
 <span align="center">
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
@@ -16,7 +16,7 @@
 
 <br>
 
-<h4>The Results: </h4>
+<h3>The Results: </h3>
 
 https://github.com/fa-rimi/flipIT/assets/109316364/718c452d-2da3-4d52-be7c-138ccd9da10d
 
