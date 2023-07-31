@@ -11,7 +11,7 @@
 
 
 <h3>The Motivation: </h3>
-Creating a simple yet fun game that anyone can play to pass time or keep their memory sharp.
+Creating a simple yet fun game that I can play to pass time or keep my memory sharp.
 <br>
 
 <h3>The Process: </h3>
@@ -33,4 +33,6 @@ https://github.com/fa-rimi/flipIT/assets/109316364/718c452d-2da3-4d52-be7c-138cc
 <ul>
 <li>Making game accessible for people who have visual impairment or color vision deficiency 
 <li>Adding a limited game mode feature that sets a time limit for game level
+<li>Making it responsive for mobile devices
+<li>Color palette and theme options
 </ul>
