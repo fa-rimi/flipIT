@@ -105,6 +105,24 @@ hardBtn.addEventListener("click", () => {
   }
 });
 
+const harderBtn = document.getElementById('harder');
+harderBtn.addEventListener("click", () => {
+  console.log("harder mode activated! good luck :)");
+
+  const selectedMode = modeToggle.value;
+
+  if (selectedMode === "limited") {
+    createNewGameBoard(8, 8);
+    timeLimitInSeconds = 500;
+    document.getElementById(
+      "timer"
+    ).textContent = `Remaining Time: ${formatTime(timeLimitInSeconds)}`;
+    startLimitedGameMode(500);
+  } else {
+    createNewGameBoard(8, 8);
+  }
+});
+
 function updateClickCount() {
   const clickCountElement = document.getElementById("click-count");
   clickCountElement.textContent = `Click Count: ${clickCount}`;
