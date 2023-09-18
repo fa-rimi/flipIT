@@ -5,7 +5,7 @@
 
 
 ![](https://img.shields.io/github/last-commit/fa-rimi/flipIT) [![Netlify Status](https://api.netlify.com/api/v1/badges/db194a07-4574-46e0-9ba8-08c923fbfdbd/deploy-status)](https://app.netlify.com/sites/flipitv1/deploys) 
-![[](https://flipitv1.netlify.app/)](https://img.shields.io/badge/website-live-neongreen)
+![[](https://flipitv1.netlify.app/)](https://badgen.net/badge/website/live/green?icon=github)
 
 
 <h3>Choose a game mode, flip the cards, match the colors and win!</h3>

@@ -231,11 +231,8 @@ function createNewGameBoard(rows, columns) {
 function randomRgbColor() {
   // I multiplied it to 256 because rbg values range from 0 - 255; the 256 is exclusive
   const r = Math.floor(Math.random() * 256);
-  //
   const g = Math.floor(Math.random() * 256);
-  //
   const b = Math.floor(Math.random() * 256);
-  //
   // The function returns a string in the "rgb(r, g, b)" format, where r, g, and b are random values which will then be applied to the frontFace
   return `rgb(${r}, ${g}, ${b})`;
 
