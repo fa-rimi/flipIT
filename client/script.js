@@ -217,3 +217,12 @@ async function saveLeaderboardEntry(playerName, mode) {
     // Handle error, e.g., display an error message to the user
   }
 }
+
+// Fetching leaderboard data 
+// ? Append data to leaderboard.html
+async function fetchData() {
+  const res = await fetch("http://localhost:3001/leaderboard/easy");
+  const data = await res.json()
+  console.log(data);
+}
+window.onload = fetchData;

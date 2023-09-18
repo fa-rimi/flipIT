@@ -165,3 +165,25 @@ a {
 img {
     width: 25px;
 }
+
+.leaderboard-body {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.leaderboard-mode {
+    margin: 10px;
+}
+
+.leaderboard-buttons {
+    width: 100px;
+}
+
+.leaderboard-footer {
+    margin: 30px;
+}
