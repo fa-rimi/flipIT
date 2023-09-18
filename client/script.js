@@ -137,10 +137,10 @@ function gameLoop() {
 function updateTimer() {
   secondsElapsed++;
   const minutes = Math.floor(secondsElapsed / 60);
-  const seconds = secondsElapsed % 60;
+  const remainingSeconds = secondsElapsed % 60;
   const timerElement = document.getElementById("timer");
   const formattedMinutes = String(minutes).padStart(2, "0");
-  const formattedSeconds = String(seconds).padStart(2, "0");
+  const formattedSeconds = String(remainingSeconds).padStart(2, "0");
   timerElement.textContent = `Time: ${formattedMinutes}:${formattedSeconds}`;
 
   const allCards = document.querySelectorAll(".memory-cards");
@@ -148,8 +148,6 @@ function updateTimer() {
 
   if (flippedCardsCount === allCards.length) {
     clearInterval(timerInterval);
-    const timeTakenInSeconds = secondsElapsed; // Calculate the time taken in seconds
-    const timeTaken = formatTime(timeTakenInSeconds); // Format it as mm:ss
 
     console.log(
       "Congratulations! You completed the game in ",
@@ -172,25 +170,26 @@ function updateTimer() {
 
       if (playerName) {
         // Make the HTTP request to save the leaderboard entry
-        saveLeaderboardEntry(playerName, timeTaken, currentGameMode);
+        saveLeaderboardEntry(playerName, currentGameMode);
       }
     }, 1000);
   }
 }
 
-function formatTime(seconds) {
-  const minutes = Math.floor(seconds / 60);
-  const remainingSeconds = seconds % 60;
-  return `${String(minutes).padStart(2, "0")}:${String(
-    remainingSeconds
-  ).padStart(2, "0")}`;
-}
+// function formatTime(timeTakenInSeconds) {
+//   const minutes = Math.floor(timeTakenInSeconds / 60);
+//   const seconds = timeTakenInSeconds % 60;
+//   const formattedTime = `${String(minutes).padStart(2, "0")}:${String(
+//     seconds
+//   ).padStart(2, "0")}`;
+//   return formattedTime;
+// }
 
 // Backend Request
 async function saveLeaderboardEntry(playerName, mode) {
   try {
-    const timeTaken = secondsElapsed; // Use the time from updateTimer
-    const formattedTime = formatTime(timeTaken); // Format the time if needed
+    const timeTakenInSeconds = secondsElapsed; // Use the time from updateTimer
+    // const formattedTime = formatTime(timeTakenInSeconds);
 
     const response = await fetch(
       `http://localhost:3001/leaderboard/${currentGameMode}`,
@@ -199,7 +198,7 @@ async function saveLeaderboardEntry(playerName, mode) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ playerName, time: formattedTime, mode }),
+        body: JSON.stringify({ playerName, timeTaken: timeTakenInSeconds, mode }), // Send timeTakenInSeconds instead of formattedTime
       }
     );
 

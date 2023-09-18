@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const { easy, medium, hard, harder } = require("../models/Leaderboard");
-const { formatTime } = require("../utils/helpers");
 
 // Define a mapping of modes to leaderboard models
 const leaderboardModels = {
@@ -20,7 +19,7 @@ const handleErrors = (res, status, message) => {
 // POST route for saving a leaderboard entry
 router.post("/:mode", async (req, res) => {
   const { mode } = req.params;
-  const { playerName, timeTaken } = req.body;
+  const { playerName, timeTaken } = req.body; // timeTaken is now a number
 
   try {
     // Check if the specified mode exists in the mapping
@@ -28,17 +27,15 @@ router.post("/:mode", async (req, res) => {
       return handleErrors(res, 400, "Invalid game mode");
     }
 
-    const formattedTime = formatTime(timeTaken);
-
     const leaderboardEntry = new leaderboardModels[mode]({
       playerName,
-      time: formattedTime,
+      time: timeTaken, // Save timeTaken as a number
       mode,
     });
 
     await leaderboardEntry.save();
 
-    // Log playerName 
+    // Log playerName
     console.log(`Leaderboard entry saved successfully: ${playerName}`);
 
     return res
