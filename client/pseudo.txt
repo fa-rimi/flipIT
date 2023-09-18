@@ -179,5 +179,3 @@ who might have color vision deficiency
     secondsElapsed = 0; // set second to 0
     timerStarted = false; 
 -------------------------------------------------------------------------------------------
-
-- Problem: 
