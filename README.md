@@ -1,6 +1,6 @@
 <span>
 <h1>
-<a href="https://fa-rimi.github.io/flipIT/">flip IT</a>
+<a href="https://fa-rimi.github.io/flipIT/">flip IT (live)</a>
 </h1>
 
 
