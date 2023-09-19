@@ -36,7 +36,6 @@ function updateClickCount() {
 }
 
 const gameboard = document.querySelector(".gameboard");
-
 function createNewGameBoard(rows, columns) {
   clickCount = 0;
   clearInterval(timerInterval);
@@ -100,6 +99,7 @@ function createNewGameBoard(rows, columns) {
   }
 }
 
+// Color generators 
 function toggleColorMode() {
   const colorModeSelect = document.getElementById("color-mode-select");
   const selectedValue = colorModeSelect.value;
@@ -187,6 +187,15 @@ function gameLoop() {
   }
 }
 
+/**
+ * @description Updates the game timer display,
+ * calculates elapsed time,
+ * and checks if the game is completed to display a congratulations message
+ * and prompt the player for their name
+ *
+ * if the playerName is true (or entered)
+ * it will callback the saveLeaderboardEntry() function
+ */
 function updateTimer() {
   secondsElapsed++;
   const minutes = Math.floor(secondsElapsed / 60);
@@ -229,21 +238,19 @@ function updateTimer() {
   }
 }
 
-// function formatTime(timeTakenInSeconds) {
-//   const minutes = Math.floor(timeTakenInSeconds / 60);
-//   const seconds = timeTakenInSeconds % 60;
-//   const formattedTime = `${String(minutes).padStart(2, "0")}:${String(
-//     seconds
-//   ).padStart(2, "0")}`;
-//   return formattedTime;
-// }
-
-// Backend Request
+/**
+ * Fullstack integration
+ * @param {*} playerName
+ * @param {*} mode
+ * @method fetch
+ * @description Sends an HTTP POST request to save the player's name and game time to the leaderboard for the selected game mode
+ */
 async function saveLeaderboardEntry(playerName, mode) {
   try {
-    const timeTakenInSeconds = secondsElapsed; // Use the time from updateTimer
+    const timeTakenInSeconds = secondsElapsed; // Use the time from updateTimer()
     // const formattedTime = formatTime(timeTakenInSeconds);
 
+    // currentGameMode is appended to the URL to indicate the game mode being played
     const response = await fetch(
       `http://localhost:3001/leaderboard/${currentGameMode}`,
       {
@@ -274,3 +281,14 @@ async function saveLeaderboardEntry(playerName, mode) {
     // Handle error, e.g., display an error message to the user
   }
 }
+
+// ---- Helper Function ----
+// function formatTime(timeTakenInSeconds) {
+
+//   const minutes = Math.floor(timeTakenInSeconds / 60);
+//   const seconds = timeTakenInSeconds % 60;
+//   const formattedTime = `${String(minutes).padStart(2, "0")}:${String(
+//     seconds
+//   ).padStart(2, "0")}`;
+//   return formattedTime;
+// }
