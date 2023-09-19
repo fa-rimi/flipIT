@@ -4,6 +4,7 @@ let timerInterval;
 let secondsElapsed = 0;
 let timerStarted = false;
 let currentGameMode;
+let originalColorMode = true;
 
 const easyBtn = document.getElementById("easy");
 easyBtn.addEventListener("click", () => {
@@ -99,12 +100,64 @@ function createNewGameBoard(rows, columns) {
   }
 }
 
+function toggleColorMode() {
+  const colorModeSelect = document.getElementById("color-mode-select");
+  const selectedValue = colorModeSelect.value;
+
+  if (selectedValue === "original") {
+    originalColorMode = true;
+  } else if (selectedValue === "high-contrast") {
+    originalColorMode = false;
+  }
+
+  console.log(`${selectedValue} selected`);
+
+  if (originalColorMode) {
+    // Switch to original color mode using randomRgbColor
+    updateCardBackgrounds(randomRgbColor());
+  } else {
+    // Switch to high-contrast color mode
+    updateCardBackgrounds(generateHighContrastColors());
+  }
+}
+
 function randomRgbColor() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
   const b = Math.floor(Math.random() * 256);
   return `rgb(${r}, ${g}, ${b})`;
 }
+
+// Function to generate random colors with high contrast
+function generateHighContrastColors(count) {
+  const colors = [];
+  for (let i = 0; i < count; i++) {
+    const randomColor = randomHighContrastColor();
+    colors.push(randomColor);
+  }
+  return colors;
+}
+
+// Function to generate a random high-contrast color
+function randomHighContrastColor() {
+  const r = Math.random() > 0.3 ? 255 : 0;
+  const g = Math.random() > 0.3 ? 255 : 0;
+  const b = Math.random() > 0.3 ? 255 : 0;
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
+// Function to update card backgrounds based on the selected color scheme
+function updateCardBackgrounds(colors) {
+  const cardElements = document.querySelectorAll(".front-face");
+
+  cardElements.forEach((card, index) => {
+    card.style.backgroundColor = colors[index];
+  });
+}
+
+// Add event listener to the color mode toggle button
+const toggleColorModeButton = document.getElementById("color-mode-select");
+toggleColorModeButton.addEventListener("click", toggleColorMode);
 
 function gameLoop() {
   const flippedCardCount = flippedCards.length;
@@ -198,7 +251,11 @@ async function saveLeaderboardEntry(playerName, mode) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ playerName, timeTaken: timeTakenInSeconds, mode }), // Send timeTakenInSeconds instead of formattedTime
+        body: JSON.stringify({
+          playerName,
+          timeTaken: timeTakenInSeconds,
+          mode,
+        }), // Send timeTakenInSeconds instead of formattedTime
       }
     );
 
@@ -217,12 +274,3 @@ async function saveLeaderboardEntry(playerName, mode) {
     // Handle error, e.g., display an error message to the user
   }
 }
-
-// Fetching leaderboard data 
-// ? Append data to leaderboard.html
-async function fetchData() {
-  const res = await fetch("http://localhost:3001/leaderboard/easy");
-  const data = await res.json()
-  console.log(data);
-}
-window.onload = fetchData;

@@ -166,6 +166,12 @@ img {
     width: 25px;
 }
 
+.leaderboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .leaderboard-body {
     width: 100vw;
     height: 100vh;
@@ -186,4 +192,19 @@ img {
 
 .leaderboard-footer {
     margin: 30px;
+}
+
+#leaderboard-table th,
+#leaderboard-table td {
+    padding: 8px 40px;
+    /* Adjust the padding as needed */
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    /* Add a bottom border to table header and cells */
+}
+
+#leaderboard-table th {
+    background-color: #f2f2f2;
+    /* Header background color */
+    font-weight: bold;
 }
